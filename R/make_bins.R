@@ -172,7 +172,7 @@ if(any(bin_type %in% c("xgboost", "woe", "logreg"))){
     rec1 <- recipes::recipe(myform, data = .data)
 
     if(!use_cart){
-      rec2 <- embed::step_discretize_xgb(rec1, tidyselect::any_of(bin_cols_string), outcome = outcome1, num_breaks = n_bins, ..., verbose = 0)
+      rec2 <- embed::step_discretize_xgb(rec1, tidyselect::any_of(bin_cols_string), outcome = outcome1, num_breaks = n_bins, ...)
       abbv <- "xg"
     } else{
       rec2 <- embed::step_discretize_cart(rec1, tidyselect::any_of(bin_cols_string), outcome = outcome1, ...)
